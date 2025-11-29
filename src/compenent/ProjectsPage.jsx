@@ -1,49 +1,45 @@
 import { Link } from "react-router-dom";
 
 function ProjectsPage() {
-  // Tableau de projets
   const projects = [
     {
       title: "Jeu d’échecs en Java",
       description: "Un simulateur d’échiquier réalisé en Java pour un projet scolaire.",
-      link: "#"
+      link: "https://github.com/hariz0212/echec"
     },
     {
-      title: "Portfolio en React",
+      title: "Portfolio en React+Vite",
       description: "Développement de mon portfolio personnel avec React et TailwindCSS.",
-      link: "#"
+      link: "https://github.com/hariz0212/Portfolio"
     },
     {
-      title: "Application Web",
-      description: "Une petite application web pour gérer des tâches quotidiennes.",
-      link: "#"
+      title: "Création et implémentation d'une Base de Donée",
+      description: "Création d'un script de création de base de Donée mais Aussi d'un MEA",
+      link: "https://github.com/hariz0212/hariz0212/tree/main/S1/Sql"
     },
     {
-      title: "Projet 4",
-      description: "Description rapide du projet 4...",
-      link: "#"
+      title: "Etude de communautés dans un réseau social",
+      description: "Nous avons étudier les communauté dans un réseau sociaux Avec du python, elle contient Deux version une plus avancé.",
+      link: "https://github.com/hariz0212/hariz0212/tree/main/S1/python"
     },
     {
-      title: "Projet 5",
-      description: "Description rapide du projet 5...",
-      link: "#"
+      title: "Receuil de besoin",
+      description: "Enquête pour l'amélioration  de l'espace conacré à la vie étudiante et à la formation au sein de l'IUT",
+      link: "https://github.com/hariz0212/hariz0212/tree/main/S1/receuil%20de%20besoin"
     },
     {
-      title: "Projet 6",
-      description: "Description rapide du projet 6...",
-      link: "#"
+      title: "Economie",
+      description: "Un projet qui répond a la question de comment l'entreprise Nintendo a-t-elle réussi à réduire son empreinte numérique",
+      link: "https://github.com/hariz0212/hariz0212/tree/main/S1/économie"
     },
   ];
 
   return (
     <section className="py-16 px-6 bg-gray-50 min-h-screen">
       <div className="max-w-6xl mx-auto">
-        {/* Titre */}
         <h2 className="text-4xl font-extrabold text-center mb-12 text-gray-800">
           Tous mes projets
         </h2>
-
-        {/* Grille de projets */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <div
@@ -62,7 +58,6 @@ function ProjectsPage() {
           ))}
         </div>
 
-        {/* Bouton retour */}
         <div className="mt-12 flex justify-center">
           <Link
             to="/"

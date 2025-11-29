@@ -6,7 +6,7 @@
 }
 
 .animate-slide {
-  animation: slide 20s linear infinite;
+  animation: slide 7s linear infinite;
 }
 
 @keyframes fadeInLeft {
