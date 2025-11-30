@@ -14,9 +14,9 @@ function Projects() {
         </div>
 
         <div className="bg-white p-9 rounded-xl shadow w-full sm:w-auto max-w-sm">
-          <h3 className="text-xl font-semibold mb-2">Projet 2</h3>
+          <h3 className="text-xl font-semibold mb-2">Portfolio en React+Vite</h3>
           <p className="text-gray-600">
-            Description rapide du projet...
+            Développement de mon portfolio personnel avec React et TailwindCSS.
           </p>
         </div>
 
@@ -28,7 +28,10 @@ function Projects() {
         <div className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></div>
         
         <div className="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
-          <Link to="/projects" className="relative text-white">
+          <Link 
+          to="/projects" 
+          className="relative text-white"
+          >
             En savoir plus
           </Link>
         </div>

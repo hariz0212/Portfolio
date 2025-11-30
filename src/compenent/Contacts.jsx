@@ -1,6 +1,9 @@
 function Contact() {
   return (
-    <section  className="py-10 px-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white" id="contacts">
+    <section
+      className="py-10 px-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white"
+      id="contacts"
+    >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
         
         {/* Colonne gauche : phrase d’accroche */}
@@ -13,13 +16,23 @@ function Contact() {
           </p>
         </div>
 
-        {/* Colonne droite : email stylé avec animation */}
+        {/* Colonne droite : email + numéro stylés */}
         <div className="md:w-1/2 text-right animate-fadeInRight">
+          {/* Email */}
           <p className="text-lg uppercase tracking-wider text-gray-400 mb-2">
             Email
           </p>
-          <p className="text-3xl font-bold relative inline-block cursor-pointer text-blue-400 animate-pulse">
+          <p className="text-xl font-bold relative inline-block cursor-pointer text-blue-400 animate-pulse mb-6">
             harizsan38@gmail.com
+            <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-400 animate-slideUnderline"></span>
+          </p>
+
+          {/* Numéro */}
+          <p className="text-lg uppercase tracking-wider text-gray-400 mb-2">
+            Téléphone
+          </p>
+          <p className="text-xl font-bold relative inline-block cursor-pointer text-blue-400 animate-pulse">
+            06.02.33.10.06
             <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-400 animate-slideUnderline"></span>
           </p>
         </div>
