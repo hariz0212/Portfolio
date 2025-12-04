@@ -38,25 +38,25 @@ function Education() {
               </div>
 
              <div className="relative ml-2 h-12">
-  {/* Ligne verticale */}
-  <div className="absolute left-3 top-0 border-l-2 border-blue-400 h-full"></div>
+            {/* Ligne verticale */}
+            <div className="absolute left-3 top-0 border-l-2 border-blue-400 h-full"></div>
 
-  {/* Flèche SVG alignée */}
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="absolute left-3 translate-x-[-11px] top-8 w-6 h-6 text-blue-400"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M19 9l-7 7-7-7"
-    />
-  </svg>
-</div>
+            {/* Flèche SVG alignée */}
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute left-3 translate-x-[-11px] top-8 w-6 h-6 text-blue-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+                />
+            </svg>
+            </div>
 
               {/* Université */}
               <div className="flex items-center">
