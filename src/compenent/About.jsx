@@ -1,8 +1,8 @@
+import { HashLink } from "react-router-hash-link";
 function About() {
   return (
     <section
       className="py-10 px-10 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-50"
-      id="about"
     >
       <div className="max-w-6xl mx-auto text-left animate-fadeIn">
         <h2 className="text-4xl font-extrabold mb-8 text-gray-800">
@@ -36,18 +36,19 @@ function About() {
         </div>
 
         <div className="mt-10 flex gap-6">
-          <a
-            href="#contacts"
+          <HashLink
+            smooth to='/#contacts'
             className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition-transform transform hover:scale-105"
           >
             Me contacter
-          </a>
-          <a
-            href="#skills"
+          </HashLink>
+          <HashLink
+            smooth to='/#skills'
+
             className="inline-block text-blue-600 font-semibold hover:text-blue-800 transition-colors"
           >
             Voir mes compétences →
-          </a>
+          </HashLink>
         </div>
       </div>
     </section>

@@ -9,7 +9,7 @@ function Projects() {
         <div className="bg-white p-9 rounded-xl shadow w-full sm:w-auto max-w-sm">
           <h3 className="text-xl font-semibold mb-2">Jeux d'echec</h3>
           <p className="text-gray-600">
-            Création d'un jeu d'échec en JAVA pour pour un projet Scolaire
+            Création d'un jeu d'échec en JAVA pour un projet Scolaire
           </p>
         </div>
 

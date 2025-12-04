@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import {HashLink} from "react-router-hash-link";
 
 function Nav() {
   return (
@@ -9,10 +10,10 @@ function Nav() {
 
         {/* Liens */}
         <div className="flex space-x-6 font-medium">
-          <Link to="/#about" className="hover:text-blue-600">À propos</Link>
+          <HashLink  smooth to="/#about" className="hover:text-blue-600">À propos</HashLink>
           <Link to="/projects" className="hover:text-blue-600">Projets</Link>
-          <Link to="/#skills" className="hover:text-blue-600">Compétences</Link>
-          <Link to="/#contacts" className="hover:text-blue-600">Contact</Link>
+          <HashLink smooth to="/#skills" className="hover:text-blue-600">Compétences</HashLink>
+          <HashLink smooth to="/#contacts" className="hover:text-blue-600">Contact</HashLink>
         </div>
       </div>
     </nav>
