@@ -4,6 +4,7 @@ import Skills from '../compenent/Skills.jsx';
 import Projects from '../compenent/Projects.jsx';
 import Contacts from '../compenent/Contacts.jsx';
 import Education from '../compenent/Education.jsx';
+import Avis from'../compenent/Avis.jsx';
 
 function Acceuil() {
   return (
@@ -24,10 +25,15 @@ function Acceuil() {
   <section id="projects">
     <Projects />
   </section>
+  
+  <section id="Avis">
+    <Avis />
+  </section>
 
   <section id="contacts">
     <Contacts />
   </section>
+
 </div>
   );
 }
