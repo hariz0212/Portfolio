@@ -1,84 +1,54 @@
-import express from "express";
-import cors from "cors";
-import mysql from "mysql2/promise";
-import 'dotenv/config'; // Charge les variables du fichier .env
-
-// --- Configuration de la Base de Données MySQL ---
-const dbConfig = {
-  // Les valeurs sont lues depuis le fichier .env
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-};
-
-const PORT = process.env.PORT ||500;
-
-let pool;
-
-async function connectDB() {
-  try {
-    pool = mysql.createPool(dbConfig);
-    console.log("Connexion au pool MySQL réussie !");
-    
-    // Test de connexion : si 1 + 1 = 2, la connexion est bonne
-    const [rows] = await pool.query('SELECT 1 + 1 AS solution');
-    console.log('Résultat du test DB:', rows[0].solution);
-
-  } catch (error) {
-    console.error("Erreur de connexion à MySQL:", error.message);
-    // Arrêter le programme si la base de données n'est pas accessible
-    process.exit(1); 
-  }
-};
-
-connectDB();
+const express = require('express');
+const mysql =require('mysql2/promise');
+const cors =require('cors');
 
 const app= express();
-
+app.use(express.json());
 app.use(cors());
 
-app.use(express.json());
+const db =mysql.createPool(
+  {
+    host:'localhost',
+    user:'root',
+    password:'1234',
+    database:'portfolio_db',
+    connectionLimit:10,
+    waitForConnections:true
+  }
+);
 
-app.get("/",(req, res) => {
-  res.send("Backend fonctionne et est connecté à MySQL !");
-});
+app.get('/',(req,res)=>{
 
-
-app.get("/avis", async (req,res)=>{
-    try{
-        const query="SELECT nom,prenom,avis FROM avis ORDER BY date_soumission DESC";
-
-        const [AvisList]= await pool.query(query);
-
-        res.json(AvisList);
-    }
-    catch(error){
-        console.error(error);
-    }
-});
-
-
-app.post("/avis" , async (req,res)=>{
-    try{
-        const { nom , prenom , email,avis}= req.body;
-
-        const [checkMail] = await pool.query("SELECT email FROM avis WHERE email=?",[email]) 
-        if (checkMail>0){
-            return res.status(401).json({message:"mail deja existant"})
-        }
-
-        const queryInsert ="INSERT INTO avis (nom,prenom,email,avis) VALUES(?,?,?,?)";
-
-        const [result] = pool.query(queryInsert,[nom,prenom,email,avis]);
-
-        res.status(201).json({id:result.insertId,nom,prenom,email,avis});
-
-    }catch(error){
-        console.error(error);
-        return res.status(409).json({message:"erreur lord de l'ajout d'un avis"})
-    }
+  return res.json('from backend side');
 
 });
 
-app.listen(PORT,()=>console.log('Serveur ouvert sur le https:${PORT}'));
+app.post('/avis_post', async (req,res)=>{
+  const sql=('INSERT INTO avis (nom,prenom,email,avis) VALUES(?,?,?,?)');
+  try{
+    await db.execute(sql,[req.body.nom, req.body.prenom, req.body.email, req.body.texte]);
+    console.log('insert');
+    return res.status(200);
+  }catch(err){
+    console.log(req.body.nom)
+    console.log('erreur lors de l insertion');
+    console.log(err);
+    return res.status(500);
+
+  }});
+
+app.get('/avis_get', async (req,res)=>{
+  const sql= ('SELECT * FROM avis');
+  try{
+    const [rows]=await db.execute(sql);
+    return res.json(rows);
+    
+  }catch(err){
+    return res
+  }
+
+});
+
+app.listen(5500,()=>{
+  console.log('port 5500');
+})
