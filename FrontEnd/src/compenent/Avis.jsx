@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import validator from 'validator';
+const url = import.meta.env.VITE_API_URL;
 
 
 function Avis() {
@@ -18,7 +19,7 @@ function Avis() {
   // Fonction pour récupérer la liste des avis depuis le serveur
   async function Handleavislist() {
     try {
-      const response = await axios.get('http://localhost:5500/avis_get');
+      const response = await axios.get('${url}/avis_get');
       setlistavis(response.data);
     } catch (e) {
       console.log("Erreur lors de l'import des avis", e);
@@ -30,7 +31,7 @@ function Avis() {
     e.preventDefault();
     try {
       // Attente de la réponse du serveur avant de continuer
-      await axios.post('http://localhost:5500/avis_post', avis);
+      await axios.post('${url}/avis_post', avis);
       
       // Mise à jour de la liste affichée
       Handleavislist();
