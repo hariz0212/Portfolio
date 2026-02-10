@@ -123,7 +123,7 @@ function Avis() {
 
         {/* --- Liste des Avis --- */}
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {listavis.map(avis => (
+          {listavis?.map(avis => (
             <li 
               key={avis.id} 
               className="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2 flex flex-col justify-between"
