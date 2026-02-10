@@ -39,17 +39,19 @@ app.post('/avis_post', async (req,res)=>{
 
   }});
 
-app.get('/avis_get', async (req,res)=>{
-  const sql= ('SELECT * FROM avis');
-  try{
-    const [rows]=await db.execute(sql);
-    return res.json(rows);
+app.get('/avis_get', async (req, res) => {
+  try {
+    const [rows] = await db.execute('SELECT * FROM avis');
+    res.json(rows);
+  } catch (err) {
+    // CE LOG EST CRUCIAL : il va apparaître dans Render
+    console.error("ERREUR SQL DÉTAILLÉE :", err); 
     
-  }catch(err){
-    return res.json({message:'erreur lors de la requete'});
+    // On renvoie un tableau VIDE au lieu d'un objet message
+    // Comme ça, le .map du frontend ne plantera plus !
+    res.status(500).json([]); 
   }
-
-}); 
+});
 
 app.listen(5500,()=>{
   console.log('port 5500');
