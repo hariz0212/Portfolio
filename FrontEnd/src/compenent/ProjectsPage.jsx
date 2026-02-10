@@ -9,27 +9,27 @@ function ProjectsPage() {
     },
     {
       title: "Portfolio en React+Vite",
-      description: "Développement de mon portfolio personnel avec React et TailwindCSS.",
+      description: "Développement de mon portfolio personnel avec React et Tailwind CSS.",
       link: "https://github.com/hariz0212/Portfolio"
     },
     {
-      title: "Création et implémentation d'une Base de Donée",
-      description: "Création d'un script de création de base de Donée mais Aussi d'un MEA",
+      title: "Création et implémentation d'une base de données",
+      description: "Script de création de base de données et conception d'un Modèle Entité-Association (MEA).",
       link: "https://github.com/hariz0212/hariz0212/tree/main/S1/Sql"
     },
     {
-      title: "Etude de communautés dans un réseau social",
-      description: "Nous avons étudier les communauté dans un réseau sociaux Avec du python, elle contient Deux version une plus avancé.",
+      title: "Étude de communautés dans un réseau social",
+      description: "Analyse de communautés sur un réseau social en Python. Comprend deux versions, dont une avancée.",
       link: "https://github.com/hariz0212/hariz0212/tree/main/S1/python"
     },
     {
-      title: "Receuil de besoin",
-      description: "Enquête pour l'amélioration  de l'espace conacré à la vie étudiante et à la formation au sein de l'IUT",
+      title: "Recueil de besoins",
+      description: "Enquête pour l'amélioration de l'espace consacré à la vie étudiante et à la formation au sein de l'IUT.",
       link: "https://github.com/hariz0212/hariz0212/tree/main/S1/receuil%20de%20besoin"
     },
     {
-      title: "Economie",
-      description: "Un projet qui répond a la question de comment l'entreprise Nintendo a-t-elle réussi à réduire son empreinte numérique",
+      title: "Économie numérique",
+      description: "Analyse de la stratégie de Nintendo pour réduire son empreinte numérique au fil des années.",
       link: "https://github.com/hariz0212/hariz0212/tree/main/S1/économie"
     },
   ];
@@ -50,6 +50,8 @@ function ProjectsPage() {
               <p className="text-gray-600 mb-4">{project.description}</p>
               <a
                 href={project.link}
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="text-blue-600 font-medium hover:underline"
               >
                 Voir plus →
