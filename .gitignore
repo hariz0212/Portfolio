@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# On ignore les dossiers de dépendances partout
+node_modules/
+
+# On ignore les fichiers d'environnement partout
+.env
+.env.local
+.env.production
+
+# On ignore les builds
+dist/
+build/
