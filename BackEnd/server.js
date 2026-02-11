@@ -25,19 +25,41 @@ app.get('/',(req,res)=>{
 
 });
 
-app.post('/avis_post', async (req,res)=>{
-  const sql=('INSERT INTO avis (nom,prenom,email,commentaire) VALUES(?,?,?,?)');
-  try{
-    await db.execute(sql,[req.body.nom, req.body.prenom, req.body.email, req.body.texte]);
-    console.log('insert');
-    return res.status(200).json({message:'insertion réussi'});
-  }catch(err){
-    console.log(req.body.nom)
-    console.log('erreur lors de l insertion');
-    console.log(err);
-    return res.status(500).json({message:'erreur lors de insertion'});;
+app.post('/avis_post', async (req, res) => {
+  // 1. On prépare la requête proprement (pas besoin de parenthèses autour du string)
+  const sql = 'INSERT INTO avis (nom, prenom, email, commentaire) VALUES (?, ?, ?, ?)';
 
-  }});
+  try {
+    // 2. On récupère les données (Destructuring pour plus de clarté)
+    const { nom, prenom, email, texte } = req.body;
+
+    // 3. Exécution
+    await db.execute(sql, [nom, prenom, email, texte]);
+    
+    // Log succès
+    console.log(`✅ Nouvel avis inséré pour : ${email}`);
+    
+    // 4. Code 201 (Created) est plus juste que 200 pour une insertion
+    return res.status(201).json({ message: 'Insertion réussie !' });
+
+  } catch (err) {
+    // Log erreur structuré
+    console.error('❌ Erreur insertion :', err.code);
+    console.error('   Détail :', err.sqlMessage);
+
+    // 5. Gestion spécifique du doublon (Code 409 = Conflict)
+    if (err.code === 'ER_DUP_ENTRY' || err.errno === 1062) {
+      return res.status(409).json({ 
+        message: "Cet email est déjà enregistré." 
+      });
+    }
+
+    // 6. Erreur générique (Code 500 = Server Error)
+    return res.status(500).json({ 
+      message: "Une erreur technique est survenue lors de l'enregistrement." 
+    });
+  }
+});
 
 app.get('/avis_get', async (req, res) => {
   try {
