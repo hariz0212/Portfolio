@@ -85,6 +85,7 @@ export default function Avis() {
   }
 
   if(loading){return <ClipLoader/>}
+  else{
   return (
     <section id="Avis" className="py-24 px-6 bg-blue-600">
       <div className="max-w-6xl mx-auto">
@@ -163,4 +164,5 @@ export default function Avis() {
       </div>
     </section>
   );
+}
 }
