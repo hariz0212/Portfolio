@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import validator from 'validator';
+import  { ClipLoader } from'react-spinners';
 const url = import.meta.env.VITE_API_URL;
 
 
-function Avis() {
+export default function Avis() {
   // Déclaration des états pour la validation de l'email, la liste des avis et les données du formulaire
+  const[loading,setLoading]=useState(false)
   const [emailerror,setemailerror]= useState(null);
   const [emailerrormessage,setemailerrormessage]= useState('');
   const [listavis, setlistavis] = useState([]);
@@ -13,7 +15,16 @@ function Avis() {
 
   // Récupération des avis au chargement initial du composant
   useEffect(() => {
-    Handleavislist();
+    try {
+      setLoading(true);
+      Handleavislist();
+      
+    } catch (error) {
+      setemailerrormessage('erreur lors de l importation des avis');
+    }finally{
+      setLoading(false)
+
+    }
   }, []);
 
   // Fonction pour récupérer la liste des avis depuis le serveur
@@ -73,6 +84,7 @@ function Avis() {
     setavis(newavis);
   }
 
+  if(loading){return <ClipLoader/>}
   return (
     <section id="Avis" className="py-24 px-6 bg-blue-600">
       <div className="max-w-6xl mx-auto">
@@ -152,5 +164,3 @@ function Avis() {
     </section>
   );
 }
-
-export default Avis;
