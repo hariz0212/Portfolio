@@ -1,19 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './App.css'
-import Nav from './compenent/Nav'
-import Acceuil from "./Pages/Acceuil";
-import Projets from "./Pages/PageProjet"
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Acceuil from './pages/Acceuil';
 
 function App() {
   return (
-   <Router>
-      <Nav />
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Acceuil />}/>
-        <Route path="/projects" element={<Projets />}/>
+        <Route path="/" element={<Acceuil />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </Router>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

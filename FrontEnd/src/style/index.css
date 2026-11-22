@@ -1,0 +1,40 @@
+@import "./typographie.css";
+@import "tailwindcss";
+
+/* La barre du haut est fixe : on décale les ancres pour ne pas cacher les titres */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  background-color: var(--color-sapin);
+}
+
+body {
+  font-family: var(--font-titre);
+  color: var(--color-brume);
+}
+
+/* Contour visible au clavier, dans la couleur d'accent */
+:focus-visible {
+  outline: 3px solid var(--color-menthe);
+  outline-offset: 3px;
+}
+
+/* Notification de succès : entre par la droite puis disparaît */
+@keyframes succes {
+  0% { transform: translateX(120%); }
+  8%, 88% { transform: translateX(0); }
+  100% { transform: translateX(120%); }
+}
+
+.animate-succes {
+  animation: succes 6s ease-in-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-succes {
+    animation: none;
+  }
+}
