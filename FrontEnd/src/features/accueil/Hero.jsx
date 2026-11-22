@@ -42,8 +42,8 @@ export default function Hero() {
                             <QuetePrincipale />
                         </div>
 
-                        {/* menu pause toujours visible sur grand écran */}
-                        <nav aria-label="Menu principal" className="hidden lg:block panneau-hud w-64 self-start p-3.5">
+                        {/* menu pause toujours visible sur très grand écran (sinon bouton Menu) */}
+                        <nav aria-label="Menu principal" className="hidden xl:block panneau-hud w-64 shrink-0 self-start p-3.5">
                             <p className="mb-2.5 text-sm text-gris-vert">Pause</p>
                             <ListeMenu />
                         </nav>
