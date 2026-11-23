@@ -14,6 +14,13 @@ import mysqlLogo from '../assets/mysql_logo.svg';
 import postgresLogo from '../assets/postgresql_logo.svg';
 import linuxLogo from '../assets/linux_logo.svg';
 import wordpressLogo from '../assets/wordpress_logo.svg';
+import captureCrm from '../assets/projets/crm.jpg';
+import captureEchec from '../assets/projets/echec.jpg';
+import capturePortfolio from '../assets/projets/portfolio.jpg';
+import captureSql from '../assets/projets/sql.jpg';
+import capturePython from '../assets/projets/python.jpg';
+import captureRecueil from '../assets/projets/recueil.jpg';
+import captureEconomie from '../assets/projets/economie.jpg';
 
 export const LIENS = {
   email: 'harizsan38@gmail.com',
@@ -106,7 +113,7 @@ export const PROJETS = [
     description: 'CRM développé pendant mon stage pour suivre les entreprises partenaires de l’IUT : authentification, rôles, fiches entreprises et contacts, tableau de tâches, export Excel.',
     techs: ['React', 'TypeScript', 'Node.js', 'Express', 'MySQL'],
     lien: 'https://github.com/hariz0212/CRM',
-    couleur: 'bg-[#6E8A4E]',
+    image: captureCrm,
     phare: true,
   },
   {
@@ -114,7 +121,7 @@ export const PROJETS = [
     description: 'Simulateur d’échiquier réalisé en équipe : programmation orientée objet, Git et méthode agile.',
     techs: ['Java', 'POO', 'Git'],
     lien: 'https://github.com/hariz0212/echec',
-    couleur: 'bg-[#3F5A48]',
+    image: captureEchec,
     phare: true,
   },
   {
@@ -122,7 +129,7 @@ export const PROJETS = [
     description: 'Ce site : React, avis des visiteurs stockés dans Supabase, déploiement continu GitHub → Netlify.',
     techs: ['React', 'Vite', 'Tailwind CSS', 'Supabase'],
     lien: 'https://github.com/hariz0212/Portfolio',
-    couleur: 'bg-[#7FA3B5]',
+    image: capturePortfolio,
     phare: true,
   },
   {
@@ -130,28 +137,28 @@ export const PROJETS = [
     description: 'Modélisation Entité-Association, script de création de la base et script Python d’automatisation des requêtes.',
     techs: ['PostgreSQL', 'SQL', 'Python'],
     lien: 'https://github.com/hariz0212/hariz0212/tree/main/S1/Sql',
-    couleur: 'bg-[#4C6E7A]',
+    image: captureSql,
   },
   {
     titre: 'Communautés dans un réseau social',
     description: 'Analyse de communautés sur un réseau social en Python, en deux versions dont une avancée.',
     techs: ['Python'],
     lien: 'https://github.com/hariz0212/hariz0212/tree/main/S1/python',
-    couleur: 'bg-[#5E7A5A]',
+    image: capturePython,
   },
   {
     titre: 'Recueil de besoins',
     description: 'Enquête pour améliorer l’espace consacré à la vie étudiante et à la formation au sein de l’IUT.',
     techs: ['Analyse du besoin'],
     lien: 'https://github.com/hariz0212/hariz0212/tree/main/S1/receuil%20de%20besoin',
-    couleur: 'bg-[#2E4438]',
+    image: captureRecueil,
   },
   {
     titre: 'Économie numérique',
     description: 'Analyse de la stratégie de Nintendo pour réduire son empreinte numérique au fil des années.',
     techs: ['Analyse'],
     lien: 'https://github.com/hariz0212/hariz0212/tree/main/S1/%C3%A9conomie',
-    couleur: 'bg-[#8FA38B]',
+    image: captureEconomie,
   },
 ];
 

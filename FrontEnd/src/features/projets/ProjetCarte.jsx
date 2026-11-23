@@ -1,12 +1,12 @@
 import { ExternalLink } from 'lucide-react';
 
 export default function ProjetCarte({ projet }) {
-    const { titre, description, techs, lien, couleur } = projet;
+    const { titre, description, techs, lien, image } = projet;
 
     return (
         <article className="flex flex-col bg-sapin-clair">
-            {/* vignette, à remplacer par une capture du projet */}
-            <div className={`h-36 ${couleur}`} aria-hidden="true"></div>
+            {/* capture du projet */}
+            <img src={image} alt="" loading="lazy" className="w-full aspect-[16/10] object-cover object-top" />
 
             <div className="flex flex-col flex-1 p-5">
                 <h3 className="font-hud text-xl font-bold text-craie">{titre}</h3>
